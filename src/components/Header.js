@@ -1,13 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
 
-function OtraApp() {
-  return (
-    <div className="App">
-      <header className="App-header">
+function Header(){
+
+
+    return(
+        <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Este es el otro componente App.
+          Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -17,9 +17,9 @@ function OtraApp() {
         >
           Learn React
         </a>
+
       </header>
-    </div>
-  );
+    )
 }
 
-export default OtraApp;
+export default Header

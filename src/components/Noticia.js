@@ -1,17 +1,17 @@
-function Noticia() {
-  
-    const noticia = {
-      titulo : "Curso react 2022",
-      descripcion: "esto es una demostracion de desestructuracion de objetos"
-    }
+function Noticia(props) {
 
-    const { titulo, descripcion } = noticia
+  const noticia = {
+    titulo : "Curso react 2022",
+    descripcion: "esto es una demostracion de desestructuracion de objetos"
+  }
 
-    return (
-        <div className="mi-clase">
-          <h1 className='mi-titulo'>Mi noticia: {titulo} </h1>
-        </div>
-    )
+  const { titulo, descripcion } = props
+
+  return (
+      <div className="mi-clase">
+        <h1 className='mi-titulo'>Mi noticia: {titulo} - {descripcion} </h1>
+      </div>
+  )
 
 }
 

@@ -1,27 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import ClassComponent from './components/ClassComponent';
+import Header from './components/Header';
 import Noticia from './components/Noticia';
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
-      </header>
-      <Noticia></Noticia>
+      <Header></Header>
+      <Noticia titulo="Primer noticia" descripcion="detalle de la noticia nro 1"></Noticia>
+      <Noticia titulo="Segunda noticia"></Noticia>
+      <ClassComponent titulo="este es el class component"></ClassComponent>
     </div>
   );
 }
