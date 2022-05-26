@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import Noticia from './Noticia';
 
-class ClassComponent extends Component {
+class Lista extends Component {
 
     state = {
-        
+        titulo: "titulo de la lista"
     }
 
     render(){
@@ -18,4 +17,4 @@ class ClassComponent extends Component {
 
 }
 
-export default ClassComponent
+export default Lista

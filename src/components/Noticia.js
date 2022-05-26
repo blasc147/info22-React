@@ -7,9 +7,16 @@ function Noticia(props) {
 
   const { titulo, descripcion } = props
 
+  const increment = () => {
+    console.log("increment");
+    props.handleClick()
+  }
+
   return (
       <div className="mi-clase">
-        <h1 className='mi-titulo'>Mi noticia: {titulo} - {descripcion} </h1>
+        <button onClick={increment}>+</button>
+        <h1 className='mi-titulo'>{props.cont} </h1>
+      
       </div>
   )
 

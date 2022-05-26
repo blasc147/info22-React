@@ -48,3 +48,9 @@
 .titulo-verde{
   color: green
 }
+
+.flex-counter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
