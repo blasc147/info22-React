@@ -1,20 +1,35 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
+import { Card } from 'react-bootstrap'
 
 class Lista extends Component {
+  state = {
+    titulo: 'titulo de la lista',
+    elementos: [
+      'This is some text within a card body.',
+      'This is some text within a card body.',
+      'This is some text within a card body.',
+    ],
+  }
 
-    state = {
-        titulo: "titulo de la lista"
-    }
-
-    render(){
-        const { titulo } = this.props
-        return(
-            <Fragment>
-                <h1 className='titulo-verde'>{titulo}</h1>
-            </Fragment>
-        )
-    }
-
+  render() {
+    const elementos = [
+      'This is some text within a card body.',
+      'This is some text within a card body 2.',
+      'This is some text within a card body 3.',
+    ]
+    const { titulo } = this.props
+    return (
+      <Fragment>
+        {elementos.map((item) => {
+          return (
+            <Card>
+              <Card.Body>{item}</Card.Body>
+            </Card>
+          )
+        })}
+      </Fragment>
+    )
+  }
 }
 
 export default Lista

@@ -37,20 +37,25 @@
   }
 }
 
-.mi-titulo{
-  color : red;
+.mi-titulo {
+  color: red;
 }
 
-.mi-clase{
+.mi-clase {
   background-color: rgb(27, 230, 230);
 }
 
-.titulo-verde{
-  color: green
+.titulo-verde {
+  color: green;
 }
 
-.flex-counter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.flex-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  color: #61dafb;
+  text-decoration: none;
 }

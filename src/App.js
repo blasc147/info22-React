@@ -1,18 +1,23 @@
-import './App.css';
-import Home from "./pages/Home"
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './App.css'
+import { Routes, Route, Link, Redirect } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Error404 from './pages/Error404'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Layout from './components/Layout'
 
 function App() {
   return (
     <div className="App">
-      {/* <Header></Header> */}
-      {/* <Noticia titulo="Primer noticia" descripcion="detalle de la noticia nro 1"></Noticia>
-      <Noticia titulo="Segunda noticia"></Noticia>
-      <ClassComponent titulo="este es el class component"></ClassComponent> */}
-      <Home></Home>
+      <Layout>
+        <Routes>
+          <Route index path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </Layout>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
