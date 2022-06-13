@@ -1,35 +1,30 @@
 import { useEffect, useState } from 'react'
-import { Card, Spinner, Alert } from 'react-bootstrap'
+import { Card, Spinner, Alert, Button } from 'react-bootstrap'
 import axios from 'axios'
+import PersonajeCard from './PersonajeCard'
 
 function ListaPersonajes() {
   const [loading, setLoading] = useState(false)
-  const [datos, setDatos] = useState(null)
+  const [page, setPage] = useState(1)
+  const [datos, setDatos] = useState([])
   const [error, setError] = useState(null)
 
   useEffect(() => {
     setLoading(true)
     axios
-      .get('https://rickandmortyapi.com/api/character')
+      .get(`https://rickandmortyapi.com/api/character/?page=${page}`)
       .then((response) => {
-        setDatos(response.data.results)
+        setDatos([...datos, ...response.data.results])
         setLoading(false)
       })
       .catch((error) => {
         setError(error)
       })
-  }, [])
+  }, [page])
 
-  if (loading) {
-    return (
-      <div className="py-5">
-        <div className="container">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
-      </div>
-    )
+  const cargarMas = (e) => {
+    e.preventDefault()
+    setPage(page + 1)
   }
 
   if (error) {
@@ -52,13 +47,7 @@ function ListaPersonajes() {
                 return (
                   <div className="col-md-4 py-5">
                     <Card>
-                      <Card>
-                        <Card.Img variant="top" src={item.image} />
-                        <Card.Body>
-                          <Card.Title>{item.name}</Card.Title>
-                          <Card.Text>{item.created}</Card.Text>
-                        </Card.Body>
-                      </Card>
+                      <PersonajeCard item={item}></PersonajeCard>
                     </Card>
                   </div>
                 )
@@ -67,6 +56,15 @@ function ListaPersonajes() {
               <Alert>No hay elementos</Alert>
             )}
           </div>
+          {loading ? (
+            <Button variant="success" disabled={true}>
+              Cargando ...
+            </Button>
+          ) : (
+            <Button variant="success" onClick={cargarMas}>
+              Cargar mas +
+            </Button>
+          )}
         </div>
       </div>
     </>
